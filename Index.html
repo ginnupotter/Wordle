@@ -10,7 +10,7 @@
           text-transform: uppercase;
           text-align: center;
       }
-      .wordlecharsgreen {
+      .wordleCharsGreen {
           background-color: rgb(21, 240, 75);
           color: rgb(4, 5, 5);
           width: 20pt;
@@ -18,7 +18,7 @@
           text-transform: uppercase;
           text-align: center;
       }
-      .wordlecharsyellow {
+      .wordleCharsYellow {
           background-color: rgb(241, 238, 14);
           color: rgb(4, 5, 5);
           width: 20pt;
@@ -26,7 +26,7 @@
           text-transform: uppercase;
           text-align: center;
       }
-      .wordlecharsgrey {
+      .wordleCharsGrey {
           background-color: rgb(119, 122, 122);
           color: rgb(4, 5, 5);
           width: 20pt;
@@ -55,23 +55,45 @@
       function onSubmit() {
       
       var keyWord = Array.from(word);
-      var enteredWord = document.getElementsByName("row"+counter);
+      let enteredWord = document.getElementsByName("row"+counter+"");
+      //alert(enteredWord.length);
       var matchReturn = 0;
+      var matchCounter = 0;
       
       for (let index = 0; index < enteredWord.length; index++) {
-        matchReturn = matchingLogic(keyWord, enteredWord[index],index);
-        if (matchReturn = 1) {
-          
-          
-        } else {
-          
-        }       
+//        alert(enteredWord[index].value);
+        matchReturn = matchingLogic(keyWord, enteredWord[index].value,index);
+        if (matchReturn == 1) {
+          document.getElementById(""+counter+""+index+"").className = "wordleCharsGreen";
+          document.getElementById(""+counter+""+index+"").setAttribute("disabled","disabled"); 
+          matchCounter++;
+        } else if (matchReturn == 2) {
+          document.getElementById(""+counter+""+index+"").className = "wordleCharsYellow";
+          document.getElementById(""+counter+""+index+"").setAttribute("disabled","disabled"); 
+        } else if (matchReturn == 0) {
+          document.getElementById(""+counter+""+index+"").className = "wordleCharsGrey";
+          document.getElementById(""+counter+""+index+"").setAttribute("disabled","disabled"); 
+        }
+                 
+        }
+        
+        if (matchCounter == enteredWord.length) {
+          alert("Congratulations");
+          return;          
+        }
+        
+        counter++;
+        document.getElementsByName("row"+counter).forEach(e => {
+          e.disabled = false;
+        });
+        
       }
-             
       
-      }
 
       function matchingLogic(keyWord, enteredChar,index) {
+
+       // alert(keyWord[index]);
+       // alert(enteredChar);
         if (keyWord[index] == enteredChar) {
           return 1;          
         } else if (keyWord.includes(enteredChar)) {
