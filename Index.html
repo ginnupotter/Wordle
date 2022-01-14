@@ -62,7 +62,7 @@
       
       for (let index = 0; index < enteredWord.length; index++) {
 //        alert(enteredWord[index].value);
-        matchReturn = matchingLogic(keyWord, enteredWord[index].value,index);
+         matchReturn = matchingLogic(keyWord, enteredWord[index].value,index);
         if (matchReturn == 1) {
           document.getElementById(""+counter+""+index+"").className = "wordleCharsGreen";
           document.getElementById(""+counter+""+index+"").setAttribute("disabled","disabled"); 
