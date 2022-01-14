@@ -1,20 +1,104 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <style>
+      .wordlechars {
+          background-color: rgb(255, 255, 255);
+          color: rgb(5, 4, 4);
+          width: 20pt;
+          height: 20pt;
+          text-transform: uppercase;
+          text-align: center;
+      }
+      .wordlecharsgreen {
+          background-color: rgb(21, 240, 75);
+          color: rgb(4, 5, 5);
+          width: 20pt;
+          height: 20pt;
+          text-transform: uppercase;
+          text-align: center;
+      }
+      .wordlecharsyellow {
+          background-color: rgb(241, 238, 14);
+          color: rgb(4, 5, 5);
+          width: 20pt;
+          height: 20pt;
+          text-transform: uppercase;
+          text-align: center;
+      }
+      .wordlecharsgrey {
+          background-color: rgb(119, 122, 122);
+          color: rgb(4, 5, 5);
+          width: 20pt;
+          height: 20pt;
+          text-transform: uppercase;
+          text-align: center;
+      }
+  </style>
+  <script>
+
+    var word = "BREAK";
+    var counter = 0;
+
+    function onPageload() {
+      var wordnum = 1;
+      for (let index = wordnum; index < 6; index++) {
+        //alert("row"+index);
+        document.getElementsByName("row"+index).forEach(e => {
+          e.disabled = true;
+        });
+      }
+      document.getElementById("00").focus();
+      //alert(counter);
+      }
+
+      function onSubmit() {
+      
+      var keyWord = Array.from(word);
+      var enteredWord = document.getElementsByName("row"+counter);
+      var matchReturn = 0;
+      
+      for (let index = 0; index < enteredWord.length; index++) {
+        matchReturn = matchingLogic(keyWord, enteredWord[index],index);
+        if (matchReturn = 1) {
+          
+          
+        } else {
+          
+        }       
+      }
+             
+      
+      }
+
+      function matchingLogic(keyWord, enteredChar,index) {
+        if (keyWord[index] == enteredChar) {
+          return 1;          
+        } else if (keyWord.includes(enteredChar)) {
+          return 2;
+        } else {
+          return 0;
+        }
+      }
+
+  </script>
+  </head>
+<body onload="onPageload()">
 
 <h2>WORDLE</h2>
 
 <div>
-  <input type="text" id="00" name="row1"  maxlength="1"><input type="text" id="01" name="row1"  maxlength="1"><input type="text" id="02" name="row1"  maxlength="1"><input type="text" id="03" name="row1"  maxlength="1"><input type="text" id="04" name="row1"  maxlength="1">
-  <input type="text" id="10" name="row1"  maxlength="1"><input type="text" id="11" name="row1"  maxlength="1"><input type="text" id="12" name="row1"  maxlength="1"><input type="text" id="13" name="row1"  maxlength="1"><input type="text" id="14" name="row1"  maxlength="1">
-  <input type="text" id="20" name="row1"  maxlength="1"><input type="text" id="21" name="row1"  maxlength="1"><input type="text" id="22" name="row1"  maxlength="1"><input type="text" id="23" name="row1"  maxlength="1"><input type="text" id="24" name="row1"  maxlength="1">
-  <input type="text" id="30" name="row1"  maxlength="1"><input type="text" id="31" name="row1"  maxlength="1"><input type="text" id="32" name="row1"  maxlength="1"><input type="text" id="33" name="row1"  maxlength="1"><input type="text" id="34" name="row1"  maxlength="1">
-  <input type="text" id="40" name="row1"  maxlength="1"><input type="text" id="41" name="row1"  maxlength="1"><input type="text" id="42" name="row1"  maxlength="1"><input type="text" id="43" name="row1"  maxlength="1"><input type="text" id="44" name="row1"  maxlength="1">
+  <input type="text" id="00" name="row0"  maxlength="1" class = "wordlechars"> <input type="text" id="01" name="row0"  maxlength="1" class = "wordlechars"> <input type="text" id="02" name="row0"  maxlength="1" class = "wordlechars"> <input type="text" id="03" name="row0"  maxlength="1" class = "wordlechars"> <input type="text" id="04" name="row0"  maxlength="1" class = "wordlechars"> <br><br>
+  <input type="text" id="10" name="row1"  maxlength="1" class = "wordlechars"> <input type="text" id="11" name="row1"  maxlength="1" class = "wordlechars"> <input type="text" id="12" name="row1"  maxlength="1" class = "wordlechars"> <input type="text" id="13" name="row1"  maxlength="1" class = "wordlechars"> <input type="text" id="14" name="row1"  maxlength="1" class = "wordlechars"> <br><br>
+  <input type="text" id="20" name="row2"  maxlength="1" class = "wordlechars"> <input type="text" id="21" name="row2"  maxlength="1" class = "wordlechars"> <input type="text" id="22" name="row2"  maxlength="1" class = "wordlechars"> <input type="text" id="23" name="row2"  maxlength="1" class = "wordlechars"> <input type="text" id="24" name="row2"  maxlength="1" class = "wordlechars"> <br><br>
+  <input type="text" id="30" name="row3"  maxlength="1" class = "wordlechars"> <input type="text" id="31" name="row3"  maxlength="1" class = "wordlechars"> <input type="text" id="32" name="row3"  maxlength="1" class = "wordlechars"> <input type="text" id="33" name="row3"  maxlength="1" class = "wordlechars"> <input type="text" id="34" name="row3"  maxlength="1" class = "wordlechars"> <br><br>
+  <input type="text" id="40" name="row4"  maxlength="1" class = "wordlechars"> <input type="text" id="41" name="row4"  maxlength="1" class = "wordlechars"> <input type="text" id="42" name="row4"  maxlength="1" class = "wordlechars"> <input type="text" id="43" name="row4"  maxlength="1" class = "wordlechars"> <input type="text" id="44" name="row4"  maxlength="1" class = "wordlechars"> <br><br>
+  <input type="text" id="50" name="row5"  maxlength="1" class = "wordlechars"> <input type="text" id="51" name="row5"  maxlength="1" class = "wordlechars"> <input type="text" id="52" name="row5"  maxlength="1" class = "wordlechars"> <input type="text" id="53" name="row5"  maxlength="1" class = "wordlechars"> <input type="text" id="54" name="row5"  maxlength="1" class = "wordlechars"> <br><br>
   
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" onclick="onSubmit()"> 
 </div> 
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
 
 </body>
 </html>
