@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html>
-
+  
 <head>
   <style>
+
+      .center {
+        margin: 0 auto;
+        width: 40%;
+        border: 1px solid green;
+        padding: 10px;
+      }
+      .bodycenter {
+        margin: 0 auto;
+        width: 30%;
+        padding: 10px;
+      }
+
+      .parent {
+        display: grid;
+        place-items: center;
+      }
+
     .wordlechars {
       background-color: rgb(255, 255, 255);
       color: rgb(5, 4, 4);
@@ -128,12 +146,29 @@
   </style>
   <script>
 
-    var word = "BREAK";
+    var word = "METAL";
     var counter = 0;
+
+
+    function setWord() {
+
+      var now = new Date();
+      var start = new Date(now.getFullYear(), 0, 0);
+      var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+      var oneDay = 1000 * 60 * 60 * 24;
+      var day = Math.floor(diff / oneDay);
+
+
+
+
+    }
 
     /*Function to disable all but first row and bring focus to first character on page load*/
     function onPageload() {
 
+     
+    // setWord();
+     
       var wordnum = 1;
       for (let index = wordnum; index < 6; index++) {
         //alert("row"+index);
@@ -148,8 +183,9 @@
     function onSubmit() {
 
       var keyWord = Array.from(word);
+      
       let enteredWord = document.getElementsByName("row" + counter + "");
-      //alert(enteredWord.length);
+      var charCheck = new Array(enteredWord.length);
       var matchReturn = 0;
       var matchCounter = 0;
 
@@ -164,42 +200,71 @@
           return;
         }
 
-
-        matchReturn = matchingLogic(keyWord, enteredWord[index].value, index);
+        //alert(enteredWord[index].value.toUpperCase());
+        matchReturn = matchingLogic(keyWord,enteredWord[index].value.toUpperCase() , index);
         if (matchReturn == 1) {
-          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGreen";
-          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+          charCheck[index] = 1;
+
+//          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGreen";
+         // document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
           matchCounter++;
         } else if (matchReturn == 2) {
-          document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
-          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+          charCheck[index] = 2;
+//          document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
+        //  document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
         } else if (matchReturn == 0) {
-          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
-          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+          charCheck[index] = 0;
+
+//          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
+         // document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
         }
 
       }
+
+      for (let index = 0; index < enteredWord.length; index++) {
+        if (charCheck[index] == 1) {
+          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGreen";
+          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+         
+        } else if (charCheck[index] == 2) {
+
+          document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
+          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+        } else if (charCheck[index] == 0) {
+          
+          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
+          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+        }        
+
+
+      }
+
 
       if (matchCounter == enteredWord.length) {
         showMessage(dispMsgComplete);
         return;
       }
-
+      
+      document.getElementsByName("row" + counter).forEach(e => {
+        e.disabled = true;
+      });
+      
       counter++;
+      
       document.getElementsByName("row" + counter).forEach(e => {
         e.disabled = false;
       });
-
+      document.getElementById(counter+"0").focus(); // Bring focus to next row first box
     }
 
 
-    function matchingLogic(keyWord, enteredChar, index) {
+    function matchingLogic(keyWrd, enteredChar, index) {
 
-      // alert(keyWord[index]);
-      // alert(enteredChar);
-      if (keyWord[index] == enteredChar) {
+     //  alert(keyWrd[index]);
+     // alert(enteredChar);
+      if (keyWrd[index] == enteredChar) {
         return 1;
-      } else if (keyWord.includes(enteredChar)) {
+      } else if (keyWrd.includes(enteredChar)) {
         return 2;
       } else {
         return 0;
@@ -216,17 +281,22 @@
       setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     }
 
+    function keyupFunction()
+    {
+
+    }
 
 
   </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body onload="onPageload()">
+<body class="bodycenter" onload="onPageload()">
 
-  <h2>WORDLE</h2>
+  <h2 class="center" style="text-align: center;">WORDLE</h2>
 
-  <div>
-    <input type="text" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br><br>
+  <div class="center" style="clear:both; width:40%; text-align:center;">
+    <input type="text" onkeyup="keyupFunction()" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="10" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="11" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="12" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="13" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="14" name="row1" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="20" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="21" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="22" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="23" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="24" name="row2" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="30" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="31" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="32" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="33" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="34" name="row3" maxlength="1" class="wordlechars"> <br><br>
@@ -239,10 +309,11 @@
     <input type="text" id="53" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="54" name="row5"
       maxlength="1" class="wordlechars"> <br><br>
 
-    <input type="submit" value="Submit" onclick="onSubmit()">
+    <input type="submit" style="justify-content: space-evenly;" value="Submit" onclick="onSubmit()">
+    <div id="snackbar"></div>
   </div>
 
-  <div id="snackbar"></div>
+  
 
 
 </body>
