@@ -143,7 +143,7 @@
   </style>
   <script>
 
-    var word = "CYCLE";
+    var word = "";
     var counter = 0;
 
 
@@ -164,37 +164,30 @@
 
     function setWord() {
       
-      alert("check1");
-      
-      var fileContents = readTextFile('https://drive.google.com/file/d/1-dVy7b0zlWTtsPiBSO9IW9lEEOZlCumv/view?usp=sharing');
-
-
+      var wordList = new Array("THINK", "STEAM", "ENTRY", "FOCUS", "BREAK", "YOUTH", "START", "PARTY", "IMAGE", "EMPTY", "WATCH", "HOUSE", "VISIT", "WOMAN", "LARGE", "MONTH", "BLAME", "PROUD", "STATE", "BRIEF", "DRINK", "LIMIT", "JOINT", "BLOCK", "CATCH", "SPACE", "CLEAR", "RANGE", "QUEEN", "WHICH", "BUYER", "MAGIC", "VIDEO", "GUESS", "HEAVY", "CLAIM", "STEEL", "RATIO", "RELAX", "PRICE", "NIGHT", "ANGRY", "WHOSE", "ALTER", "AWARE", "BREAD", "TITLE", "BRAVE", "GUIDE", "MAJOR", "COVER", "CHEST", "OWNER", "DIRTY", "CAUSE", "CARRY", "PLANT", "SCOPE", "HARSH", "RIGHT", "LEAVE", "UNCLE", "CRIME", "CRAZY", "INPUT", "ALLOW", "EXIST", "WRITE", "SERVE", "ORDER", "EARTH", "PLACE", "WORLD", "STAND", "TOUCH", "LEVEL", "FINAL", "BREAK", "SENSE", "SKILL", "FIRST", "TRACK", "EVENT", "SCALE", "BIRTH", "OCCUR", "OUTER", "RUGBY", "METAL", "DANCE", "SPEND", "BRING", "SMOKE", "STATE", "PRIZE", "PHASE", "EXTRA", "TOWER", "NURSE", "ERROR", "CHAIR", "SHOCK", "RIGHT", "DRINK", "FALSE", "IDEAL", "FIGHT", "BROWN", "CYCLE", "DOUBT", "PHONE", "FRANK", "ADOPT", "DRESS", "TREAT", "FRUIT", "TRUST", "EARLY", "MINOR", "WATCH", "TRUTH", "HAPPY", "PANEL", "PROVE", "FINAL", "PLACE", "SOUTH", "PRIME", "DREAM", "BLOOD", "TREND", "REPLY", "VALUE", "POINT", "ROMAN", "GIANT", "LAUGH", "THERE", "HOTEL", "NAKED", "VOICE", "PAPER", "SHIFT", "WHITE", "RAISE", "AWFUL", "MATCH", "SHARE", "IMPLY", "MARRY", "SOUND", "UNION", "ISSUE", "UNITY", "JUDGE", "OFFER", "GREEN", "SHEEP", "HEART", "FUNNY", "ENTER", "DRIVE", "STAFF", "COUNT", "POINT", "CLIMB", "CLOCK", "DRAFT", "NOISE", "CREAM", "OTHER", "SCENE", "INDEX", "FAULT", "MARCH", "MOTOR", "POWER", "SLEEP", "DANCE", "BEGIN", "DOUBT", "BASIC", "LEGAL", "STONE", "GREEN", "MOUTH", "MAJOR", "LEARN", "YOURS", "FRESH", "NOVEL", "CHIEF", "PLATE", "SPEED", "MATCH", "MORAL", "MUSIC", "FIELD", "PITCH", "FAINT", "GLASS", "QUIET", "ENEMY", "TRAIN", "TRIAL", "ROUTE", "BUILD", "ALONE", "BLACK", "TABLE", "CROSS", "GRASS", "NASTY", "SHALL", "LEVEL", "WASTE", "CLEAN", "BOARD", "COVER", "BRAIN", "PRIDE", "ISSUE", "BURST", "HORSE", "FIGHT", "ACUTE", "EQUAL", "AGENT", "GRANT", "ARISE", "STUFF", "FIFTH", "REFER", "ROUND", "SOLVE", "CLAIM", "APPLE", "OUGHT", "STAGE", "COURT", "AVOID", "FOCUS", "SHIFT", "SPEAK", "SHIRT", "WHERE", "SUGAR", "BEACH", "PRIOR", "STUDY", "ALIVE", "PROOF", "STICK", "LAYER", "FORCE", "INNER", "PLANE", "CROWD", "KNIFE", "LOCAL", "CHILD", "BASIS", "SHAPE", "LUNCH", "JUDGE", "LIMIT", "SHEET", "CLOSE", "COAST", "ARGUE", "BROAD", "FLOOR", "AGREE", "DAILY", "DRAMA", "CHAIN", "TEACH", "THANK", "SPITE", "TRADE", "SMILE", "WASTE", "VOICE", "GROSS", "PRESS", "STOCK", "WOULD", "START", "OTHER", "ORDER", "FRONT", "MONEY", "WORRY", "GRAND", "CIVIL", "SPORT", "TOUCH", "THING", "TRUST", "PILOT", "ROUGH", "BLIND", "SPLIT", "LIGHT", "TRAIN", "TOTAL", "FRONT", "PLAIN", "STYLE", "CROWN", "APPLY", "FORCE", "BROWN", "CLASS", "THROW", "QUICK", "HUMAN", "WHILE", "THEME", "TASTE", "GROUP", "REACH", "ADULT", "SHARE", "DEPTH", "LOOSE", "ABOVE", "DRIVE", "SIGHT", "FRAME", "CLOSE", "CROSS", "ADMIT", "STUDY", "CHIEF", "SHOOT", "ENJOY", "OFFER", "GREAT", "CHEAP", "FAITH", "LUCKY", "STORE", "PRESS", "AWARD", "MODEL", "ANGER", "SCORE", "LIGHT", "RIVER", "EXACT", "RADIO", "PIECE", "SQUAD", "CLEAN", "CAUSE", "WHOLE", "POUND", "CHECK", "SLEEP", "CLEAR", "PEACE", "NORTH", "WATER", "PHONE", "SOUND", "COACH");
+      //var fileContents = readTextFile('https://drive.google.com/file/d/1-dVy7b0zlWTtsPiBSO9IW9lEEOZlCumv/view?usp=sharing');
       var now = new Date();
       var start = new Date(now.getFullYear(), 0, 0);
       var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
       var oneDay = 1000 * 60 * 60 * 24;
-      var day = Math.floor(diff / oneDay);
+      var day = Math.floor(diff / oneDay); //find day of the year to pick the word from the array
 
-      return 1;
-
+      return wordList[day];
 
     }
 
     /*Function to disable all but first row and bring focus to first character on page load*/
     function onPageload() {
-
      
-    //word = setWord();
+    word = setWord();
      
       var wordnum = 1;
       for (let index = wordnum; index < 6; index++) {
-        //alert("row"+index);
-        document.getElementsByName("row" + index).forEach(e => {
+                document.getElementsByName("row" + index).forEach(e => {
           e.disabled = true;
         });
       }
       document.getElementById("00").focus();
-      //alert(counter);
     }
 
     function onSubmit() {
@@ -203,6 +196,9 @@
       
       let enteredWord = document.getElementsByName("row" + counter + "");
       var charCheck = new Array(enteredWord.length);
+      var copyWord = new Array(enteredWord.length);
+      var keyCharCount = new Array(word.length);
+      var enteredCharCount = new Array(enteredWord.length);
       var matchReturn = 0;
       var matchCounter = 0;
 
@@ -210,20 +206,31 @@
       var dispMsgComplete = "Congratulations";
 
       for (let index = 0; index < enteredWord.length; index++) {
-      //  alert(!enteredWord[index].value);
+        copyWord[index]=enteredWord[index].value;
+      }
 
+      
+
+      for (let index = 0; index < enteredWord.length; index++) {
+     
         if(!enteredWord[index].value) {
           showMessage(dispMsgIncomplete);
           return;
         }
 
-        //alert(enteredWord[index].value.toUpperCase());
         matchReturn = matchingLogic(keyWord,enteredWord[index].value.toUpperCase() , index);
         if (matchReturn == 1) {
           charCheck[index] = 1;
           matchCounter++;
 
         } else if (matchReturn == 2) {
+         // const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+          //var charCountKeyWord = countOccurrences(keyWord, enteredWord[index].value.toUpperCase());
+          //var charCountEnteredWord = countOccurrences(enteredWord, enteredWord[index].value.toUpperCase());
+
+//          alert(charCountKeyWord);
+  //        alert(charCountEnteredWord);
+
           charCheck[index] = 2;
 
         } else if (matchReturn == 0) {
@@ -272,8 +279,6 @@
 
     function matchingLogic(keyWrd, enteredChar, index) {
 
-     //  alert(keyWrd[index]);
-     // alert(enteredChar);
       if (keyWrd[index] == enteredChar) {
         return 1;
       } else if (keyWrd.includes(enteredChar)) {
@@ -283,7 +288,7 @@
       }
     }
    
-    //Show message onscreen
+    //Show snackbar message onscreen
     function showMessage(dispMsg) {
      // alert(dispMsg);
     document.getElementById("snackbar").innerHTML = dispMsg;
