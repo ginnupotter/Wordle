@@ -143,11 +143,31 @@
   </style>
   <script>
 
-    var word = "METAL";
+    var word = "PEDAL";
     var counter = 0;
 
 
+
+
+    function readTextFile(fileloc)
+    {
+      alert("check2");
+      const fs = require('fs');
+      alert(fs);
+      fs.readFile(fileloc, (err, data) => {
+      if (err) throw err;
+    
+      alert(data.toString());
+      })
+    return data.toString();
+    }
+
     function setWord() {
+      
+      alert("check1");
+      
+      var fileContents = readTextFile('https://drive.google.com/file/d/1-dVy7b0zlWTtsPiBSO9IW9lEEOZlCumv/view?usp=sharing');
+
 
       var now = new Date();
       var start = new Date(now.getFullYear(), 0, 0);
@@ -155,7 +175,7 @@
       var oneDay = 1000 * 60 * 60 * 24;
       var day = Math.floor(diff / oneDay);
 
-
+      return 1;
 
 
     }
@@ -164,7 +184,7 @@
     function onPageload() {
 
      
-    // setWord();
+    //word = setWord();
      
       var wordnum = 1;
       for (let index = wordnum; index < 6; index++) {
@@ -201,19 +221,14 @@
         matchReturn = matchingLogic(keyWord,enteredWord[index].value.toUpperCase() , index);
         if (matchReturn == 1) {
           charCheck[index] = 1;
-
-//          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGreen";
-         // document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
           matchCounter++;
+
         } else if (matchReturn == 2) {
           charCheck[index] = 2;
-//          document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
-        //  document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+
         } else if (matchReturn == 0) {
           charCheck[index] = 0;
 
-//          document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
-         // document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
         }
 
       }
@@ -278,12 +293,20 @@
       setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     }
 
-    function keyupFunction()
-    {
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function(){
+      $(".wordlechars").keyup(function(e) {
+          if (e.which == 8 || e.which == 46) {
+            $(this).prev('input').focus();
+        }
+        else {
+            $(this).next('input').focus();     
+        }
+        });
 
-    }
-
-
+      });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -293,18 +316,12 @@
   <h2 class="center" style="text-align: center;">WORDLE</h2>
 
   <div class="center" style="clear:both;  text-align:center;">
-    <input type="text" onkeyup="keyupFunction()" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br><br>
+    <input type="text" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="10" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="11" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="12" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="13" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="14" name="row1" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="20" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="21" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="22" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="23" name="row2" maxlength="1" class="wordlechars"> <input type="text" id="24" name="row2" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="30" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="31" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="32" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="33" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="34" name="row3" maxlength="1" class="wordlechars"> <br><br>
-    <input type="text" id="40" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="41" name="row4"
-      maxlength="1" class="wordlechars"> <input type="text" id="42" name="row4" maxlength="1" class="wordlechars">
-    <input type="text" id="43" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="44" name="row4"
-      maxlength="1" class="wordlechars"> <br><br>
-    <input type="text" id="50" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="51" name="row5"
-      maxlength="1" class="wordlechars"> <input type="text" id="52" name="row5" maxlength="1" class="wordlechars">
-    <input type="text" id="53" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="54" name="row5"
-      maxlength="1" class="wordlechars"> <br><br>
+    <input type="text" id="40" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="41" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="42" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="43" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="44" name="row4" maxlength="1" class="wordlechars"> <br><br>
+    <input type="text" id="50" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="51" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="52" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="53" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="54" name="row5" maxlength="1" class="wordlechars"> <br><br>
 
     <input type="submit" value="Submit" style="height:50px; width:100px"  onclick="onSubmit()">
     <div id="snackbar"></div>
