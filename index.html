@@ -21,36 +21,44 @@
     .wordlechars {
       background-color: rgb(255, 255, 255);
       color: rgb(5, 4, 4);
-      width: 20pt;
-      height: 20pt;
+      width: 30pt;
+      height: 30pt;
+      font-size:25px;
       text-transform: uppercase;
+      border-radius: 5px;
       text-align: center;
     }
 
     .wordleCharsGreen {
-      background-color: rgb(21, 240, 75);
+      background-color: rgb(65, 179, 20);
       color: rgb(4, 5, 5);
-      width: 20pt;
-      height: 20pt;
+      width: 30pt;
+      height: 30pt;
+      font-size:25px;
       text-transform: uppercase;
+      border-radius: 5px;
       text-align: center;
     }
 
     .wordleCharsYellow {
-      background-color: rgb(212, 210, 87);
+      background-color: rgb(240, 237, 61);
       color: rgb(4, 5, 5);
-      width: 20pt;
-      height: 20pt;
+      width: 30pt;
+      height: 30pt;
+      font-size:25px;
       text-transform: uppercase;
+      border-radius: 5px;
       text-align: center;
     }
 
     .wordleCharsGrey {
-      background-color: rgb(119, 122, 122);
+      background-color: rgb(156, 160, 160);
       color: rgb(4, 5, 5);
-      width: 20pt;
-      height: 20pt;
+      width: 30pt;
+      height: 30pt;
+      font-size:25px;
       text-transform: uppercase;
+      border-radius: 5px;
       text-align: center;
     }
 
@@ -146,22 +154,6 @@
     var word = "";
     var counter = 0;
 
-
-
-
-    function readTextFile(fileloc)
-    {
-      alert("check2");
-      const fs = require('fs');
-      alert(fs);
-      fs.readFile(fileloc, (err, data) => {
-      if (err) throw err;
-    
-      alert(data.toString());
-      })
-    return data.toString();
-    }
-
     function setWord() {
       
       var wordList = new Array("THINK", "STEAM", "ENTRY", "FOCUS", "BREAK", "YOUTH", "START", "PARTY", "IMAGE", "EMPTY", "WATCH", "HOUSE", "VISIT", "WOMAN", "LARGE", "MONTH", "BLAME", "PROUD", "STATE", "BRIEF", "DRINK", "LIMIT", "JOINT", "BLOCK", "CATCH", "SPACE", "CLEAR", "RANGE", "QUEEN", "WHICH", "BUYER", "MAGIC", "VIDEO", "GUESS", "HEAVY", "CLAIM", "STEEL", "RATIO", "RELAX", "PRICE", "NIGHT", "ANGRY", "WHOSE", "ALTER", "AWARE", "BREAD", "TITLE", "BRAVE", "GUIDE", "MAJOR", "COVER", "CHEST", "OWNER", "DIRTY", "CAUSE", "CARRY", "PLANT", "SCOPE", "HARSH", "RIGHT", "LEAVE", "UNCLE", "CRIME", "CRAZY", "INPUT", "ALLOW", "EXIST", "WRITE", "SERVE", "ORDER", "EARTH", "PLACE", "WORLD", "STAND", "TOUCH", "LEVEL", "FINAL", "BREAK", "SENSE", "SKILL", "FIRST", "TRACK", "EVENT", "SCALE", "BIRTH", "OCCUR", "OUTER", "RUGBY", "METAL", "DANCE", "SPEND", "BRING", "SMOKE", "STATE", "PRIZE", "PHASE", "EXTRA", "TOWER", "NURSE", "ERROR", "CHAIR", "SHOCK", "RIGHT", "DRINK", "FALSE", "IDEAL", "FIGHT", "BROWN", "CYCLE", "DOUBT", "PHONE", "FRANK", "ADOPT", "DRESS", "TREAT", "FRUIT", "TRUST", "EARLY", "MINOR", "WATCH", "TRUTH", "HAPPY", "PANEL", "PROVE", "FINAL", "PLACE", "SOUTH", "PRIME", "DREAM", "BLOOD", "TREND", "REPLY", "VALUE", "POINT", "ROMAN", "GIANT", "LAUGH", "THERE", "HOTEL", "NAKED", "VOICE", "PAPER", "SHIFT", "WHITE", "RAISE", "AWFUL", "MATCH", "SHARE", "IMPLY", "MARRY", "SOUND", "UNION", "ISSUE", "UNITY", "JUDGE", "OFFER", "GREEN", "SHEEP", "HEART", "FUNNY", "ENTER", "DRIVE", "STAFF", "COUNT", "POINT", "CLIMB", "CLOCK", "DRAFT", "NOISE", "CREAM", "OTHER", "SCENE", "INDEX", "FAULT", "MARCH", "MOTOR", "POWER", "SLEEP", "DANCE", "BEGIN", "DOUBT", "BASIC", "LEGAL", "STONE", "GREEN", "MOUTH", "MAJOR", "LEARN", "YOURS", "FRESH", "NOVEL", "CHIEF", "PLATE", "SPEED", "MATCH", "MORAL", "MUSIC", "FIELD", "PITCH", "FAINT", "GLASS", "QUIET", "ENEMY", "TRAIN", "TRIAL", "ROUTE", "BUILD", "ALONE", "BLACK", "TABLE", "CROSS", "GRASS", "NASTY", "SHALL", "LEVEL", "WASTE", "CLEAN", "BOARD", "COVER", "BRAIN", "PRIDE", "ISSUE", "BURST", "HORSE", "FIGHT", "ACUTE", "EQUAL", "AGENT", "GRANT", "ARISE", "STUFF", "FIFTH", "REFER", "ROUND", "SOLVE", "CLAIM", "APPLE", "OUGHT", "STAGE", "COURT", "AVOID", "FOCUS", "SHIFT", "SPEAK", "SHIRT", "WHERE", "SUGAR", "BEACH", "PRIOR", "STUDY", "ALIVE", "PROOF", "STICK", "LAYER", "FORCE", "INNER", "PLANE", "CROWD", "KNIFE", "LOCAL", "CHILD", "BASIS", "SHAPE", "LUNCH", "JUDGE", "LIMIT", "SHEET", "CLOSE", "COAST", "ARGUE", "BROAD", "FLOOR", "AGREE", "DAILY", "DRAMA", "CHAIN", "TEACH", "THANK", "SPITE", "TRADE", "SMILE", "WASTE", "VOICE", "GROSS", "PRESS", "STOCK", "WOULD", "START", "OTHER", "ORDER", "FRONT", "MONEY", "WORRY", "GRAND", "CIVIL", "SPORT", "TOUCH", "THING", "TRUST", "PILOT", "ROUGH", "BLIND", "SPLIT", "LIGHT", "TRAIN", "TOTAL", "FRONT", "PLAIN", "STYLE", "CROWN", "APPLY", "FORCE", "BROWN", "CLASS", "THROW", "QUICK", "HUMAN", "WHILE", "THEME", "TASTE", "GROUP", "REACH", "ADULT", "SHARE", "DEPTH", "LOOSE", "ABOVE", "DRIVE", "SIGHT", "FRAME", "CLOSE", "CROSS", "ADMIT", "STUDY", "CHIEF", "SHOOT", "ENJOY", "OFFER", "GREAT", "CHEAP", "FAITH", "LUCKY", "STORE", "PRESS", "AWARD", "MODEL", "ANGER", "SCORE", "LIGHT", "RIVER", "EXACT", "RADIO", "PIECE", "SQUAD", "CLEAN", "CAUSE", "WHOLE", "POUND", "CHECK", "SLEEP", "CLEAR", "PEACE", "NORTH", "WATER", "PHONE", "SOUND", "COACH");
@@ -171,7 +163,6 @@
       var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
       var oneDay = 1000 * 60 * 60 * 24;
       var day = Math.floor(diff / oneDay); //find day of the year to pick the word from the array
-
       return wordList[day];
 
     }
@@ -180,7 +171,6 @@
     function onPageload() {
      
     word = setWord();
-     
       var wordnum = 1;
       for (let index = wordnum; index < 6; index++) {
                 document.getElementsByName("row" + index).forEach(e => {
@@ -190,13 +180,36 @@
       document.getElementById("00").focus();
     }
 
+    function countString(str, letter) {
+
+      // creating regex 
+      const re = new RegExp(letter, 'ig');
+
+      // matching the pattern
+      const count = str.match(re).length;
+
+      return count;
+    }
+
+    function find(needle, arr) {
+    var results = [];
+    var idx = arr.indexOf(needle);
+  //  alert(idx);
+    while (idx != -1) {
+        results.push(idx);
+        idx = arr.indexOf(needle, idx + 1);
+       // alert(idx);
+    }
+   //alert(results.toString());
+    return results;
+}
+
     function onSubmit() {
 
       var keyWord = Array.from(word);
-      
       let enteredWord = document.getElementsByName("row" + counter + "");
       var charCheck = new Array(enteredWord.length);
-      var copyWord = new Array(enteredWord.length);
+      var copyEnteredWord = new Array(enteredWord.length);
       var keyCharCount = new Array(word.length);
       var enteredCharCount = new Array(enteredWord.length);
       var matchReturn = 0;
@@ -206,10 +219,8 @@
       var dispMsgComplete = "Congratulations";
 
       for (let index = 0; index < enteredWord.length; index++) {
-        copyWord[index]=enteredWord[index].value;
+        copyEnteredWord[index]=enteredWord[index].value;
       }
-
-      
 
       for (let index = 0; index < enteredWord.length; index++) {
      
@@ -224,12 +235,6 @@
           matchCounter++;
 
         } else if (matchReturn == 2) {
-         // const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-          //var charCountKeyWord = countOccurrences(keyWord, enteredWord[index].value.toUpperCase());
-          //var charCountEnteredWord = countOccurrences(enteredWord, enteredWord[index].value.toUpperCase());
-
-//          alert(charCountKeyWord);
-  //        alert(charCountEnteredWord);
 
           charCheck[index] = 2;
 
@@ -246,10 +251,38 @@
           document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
          
         } else if (charCheck[index] == 2) {
+          debugger;
+          var charCountEnteredWord = countString(copyEnteredWord.join(""),enteredWord[index].value);
+          var charCountKeyWord = countString(word,enteredWord[index].value);
 
-          document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
-          document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
-        } else if (charCheck[index] == 0) {
+          if (charCountEnteredWord <= charCountKeyWord) {
+            document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
+            document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+            continue;
+          } else if (charCountEnteredWord > charCountKeyWord) {
+            var enteredMatchIndexes = [];
+            enteredMatchIndexes = find(enteredWord[index].value,copyEnteredWord);
+            var charGreenCounter = 0;
+            var charYellowCounter = 0;
+            for (let index2 = 0; index2 < enteredMatchIndexes.length; index2++) {
+             
+                if(charCheck[enteredMatchIndexes[index2]]==1) {
+                  charGreenCounter++;
+                } else if (charCheck[enteredMatchIndexes[index2]]==2 && enteredMatchIndexes[index2] <= index) {
+                  charYellowCounter++;
+                }
+              }
+            }
+           // alert("charGreenCounter"+charGreenCounter);  alert("charYellowCounter"+charYellowCounter); alert(charGreenCounter+charYellowCounter);
+
+            if((charGreenCounter+charYellowCounter)> charCountKeyWord) {
+              document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
+              document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+            } else {
+              document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
+              document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+            }
+          } else if (charCheck[index] == 0) {
           
           document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
           document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
@@ -262,7 +295,13 @@
       if (matchCounter == enteredWord.length) {
         showMessage(dispMsgComplete);
         return;
+      } else if (counter == enteredWord.length && matchCounter < enteredWord.length) {
+        
+        showMessage("The word is "+word);
+        return;
       }
+              
+      
       
       document.getElementsByName("row" + counter).forEach(e => {
         e.disabled = true;
