@@ -60,11 +60,12 @@
       debugger;
       if(copyEnteredWord.join("").length < keyWord.length) {
         showMessage(dispMsgIncomplete);
+        enteredWord[enteredWord.length-1].focus();
         return;
       } else if (copyEnteredWord.join("").length == keyWord.length) {
         if(!checkValidity(copyEnteredWord.join("").toUpperCase())) {
           showMessage(dispMsgInvalidWord);
-          enteredWord[enteredWord.length-1].focus()
+          enteredWord[enteredWord.length-1].focus();
           return;
         }
       }
