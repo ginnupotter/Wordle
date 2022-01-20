@@ -178,7 +178,7 @@
         return 0;
       }
     }
-   
+    
     //Show snackbar message onscreen
     function showMessage(dispMsg) {
      // alert(dispMsg);
