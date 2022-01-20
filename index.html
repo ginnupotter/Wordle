@@ -2,7 +2,12 @@
 <html>
   
 <head>
+  <title>Wordle</title>
+  <meta name="Wordle - a word game" content="A hobby project based on original wordle game" />
+  <meta name="googlebot" content="notranslate" />
+
   <link rel="stylesheet" href="wordStyle.css">
+  <link rel="stylesheet" href="popUp.css">
   <script src="./wordScript.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
@@ -24,7 +29,8 @@
 <body class="bodycenter" onload="onPageload()">
 
   <h2 class="center" style="text-align: center; font-size: 35px; text-underline-position: below;"><u>WORDLE</u></h2><br><br>
-  <div class="center" style="clear:both;  text-align:center;">
+  
+  <div class="center" style="clear:both;  text-align:center; background-color:rgb(232, 246, 248); opacity: 1;">
     <input type="text" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="10" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="11" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="12" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="13" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="14" name="row1" maxlength="1" class="wordlechars"> <br><br>
     <div id="snackbar"></div>
@@ -33,7 +39,27 @@
     <input type="text" id="40" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="41" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="42" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="43" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="44" name="row4" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="50" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="51" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="52" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="53" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="54" name="row5" maxlength="1" class="wordlechars"> <br><br>
 
-    <input type="submit" value="Submit" style="height:50px; width:100px"  onclick="onSubmit()">
+    <input type="submit" value="Submit" style="height:50px; width:100px; font-size: 20px;"  onclick="onSubmit()">
+
+    <div class="pop">
+      <label for="3" class="open"><b>How To Play</b></label>
+      <input type="checkbox" id="3" />
+      <div class="modal">
+        <div class="modal__inner">
+            <p>Guess the Word in 6 tries</p>
+            <p><span style="background-color: rgb(0, 255, 21);">Green</span> letter means correct letter corret spot</p>
+            <p><span style="background-color: rgb(243, 247, 3);">Yellow</span> letter means correct letter wrong spot</p>
+            <p><span style="background-color: rgb(156, 160, 156);">Gray</span> letter means letter is not in the word</p>
+            <p>For example if the word of the day is TRICK, below is what you would see for guessing BRAKE</p>
+            <p><span style="background-color: rgb(156, 160, 156); font-size:140%; padding: 7px; border: 2px solid rgb(10, 10, 10)"> B </span><span style="background-color: rgb(0, 255, 21); font-size:140%;padding: 7px; border: 2px solid rgb(10, 10, 10)"> R </span><span style="background-color: rgb(156, 160, 156); font-size:140%; padding: 7px; border: 2px solid rgb(10, 10, 10)"> A </span><span style="background-color: rgb(243, 247, 3); font-size:140%;padding: 7px; border: 2px solid rgb(10, 10, 10)"> K </span><span style="background-color: rgb(156, 160, 156); font-size:140%;padding: 7px; border: 2px solid rgb(10, 10, 10)"> E </span></p>
+            <!-- <p><input type="text" id="Sample1" name="Samplerow" maxlength="1" class="wordleCharsGrey" value="B"> <input type="text" id="Sample2" name="Samplerow" maxlength="1" class="wordlecharsGreen" value="R"> <input type="text" id="Sample3" name="Samplerow" maxlength="1" class="wordlecharsGrey" value="A"> <input type="text" id="Sample4" name="Samplerow" maxlength="1" class="wordlecharsYellow" value="K"> <input type="text" id="Sample5" name="Samplerow" maxlength="1" class="wordlecharsGrey" value="E"></p> -->
+          <label class="btn-close" for="3">X</label>
+        </div>
+      </div>
   </div>
+
+  <h4>This is a hobby project built on the lines of <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank" rel="noopener noreferrer">Original WORDLE</a> game</h4>
+  </div>
+
 </body>
 </html>

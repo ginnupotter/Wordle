@@ -52,7 +52,7 @@
 
       var dispMsgIncomplete = "Insufficient Letters Entered";
       var dispMsgComplete = "Congratulations";
-      var dispMsgInvalidWord = "Not a valid word";
+      var dispMsgInvalidWord = "Not in the word list";
 
       for (let index = 0; index < enteredWord.length; index++) {
         copyEnteredWord[index]=enteredWord[index].value;

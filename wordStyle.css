@@ -10,6 +10,8 @@ html {
 body {
     display: table-cell;
     vertical-align: top;
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    /* background-image: url('Wordle.jpg'); */
 }
 
 
