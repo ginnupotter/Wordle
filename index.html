@@ -32,6 +32,12 @@
 <body class="bodycenter" onload="onPageload()">
 
   <h2 class="center" style="text-align: center; font-size: 35px; text-underline-position: below;"><u>WORDLE</u></h2><br><br>
+  <div id="dateDiv"  class="linkInvisible">
+    <script>
+    date = new Date().toLocaleDateString();
+    document.write(date);
+    </script>
+  </div>
   
   <div id="wordgrid" class="center" style="clear:both;  text-align:center; background-color:rgb(232, 246, 248); opacity: 1;">
     <div class="wordleGrid" id="wordleGrid">
