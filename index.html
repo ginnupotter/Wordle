@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="popUp.css">
   <script src="./wordScript.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
   <script>
       $(document).ready(function(){
       $(".wordlechars").keyup(function(e) {
@@ -32,7 +33,8 @@
 
   <h2 class="center" style="text-align: center; font-size: 35px; text-underline-position: below;"><u>WORDLE</u></h2><br><br>
   
-  <div class="center" style="clear:both;  text-align:center; background-color:rgb(232, 246, 248); opacity: 1;">
+  <div id="wordgrid" class="center" style="clear:both;  text-align:center; background-color:rgb(232, 246, 248); opacity: 1;">
+    <div class="wordleGrid" id="wordleGrid">
     <input type="text" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="10" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="11" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="12" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="13" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="14" name="row1" maxlength="1" class="wordlechars"> <br><br>
     <div id="snackbar"></div>
@@ -40,8 +42,10 @@
     <input type="text" id="30" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="31" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="32" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="33" name="row3" maxlength="1" class="wordlechars"> <input type="text" id="34" name="row3" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="40" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="41" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="42" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="43" name="row4" maxlength="1" class="wordlechars"> <input type="text" id="44" name="row4" maxlength="1" class="wordlechars"> <br><br>
     <input type="text" id="50" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="51" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="52" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="53" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="54" name="row5" maxlength="1" class="wordlechars"> <br><br>
-
-    <input type="submit" value="Submit" style="height:50px; width:100px; font-size: 20px;"  onclick="onSubmit()">
+    </div>
+    
+    <input type="button" id="buttonPress" value="Submit" style="height:50px; width:200px; font-size: 20px;"  onclick="onSubmit()">
+    
 
     <div class="pop">
       <label for="3" class="open"><b>How To Play</b></label>
