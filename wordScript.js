@@ -11,9 +11,12 @@
     */
     
     
-    var word = ""; // Global variable to set the word for the day, accessible throughout the script
+     var word = ""; // Global variable to set the word for the day, accessible throughout the script
      var counter = 0;
      var matched = 0;
+     var greenChars = [];
+     var yellowChars = [];
+
  
  /*Function to disable all but first row and bring focus to first character on page load*/
  function onPageload() {
@@ -61,6 +64,8 @@
       }
       document.getElementById("buttonPress").style.visibility = "hidden";
       document.getElementById("dateDiv").className = "linkVisible";
+      document.getElementById("howTo").style.visibility = "hidden";
+      document.getElementById("disclaimer").style.visibility = "hidden";
       return;
     }
 
@@ -133,6 +138,11 @@
         if (charCheck[index] == 1) {
           document.getElementById("" + counter + "" + index + "").className = "wordleCharsGreen";
           document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+          debugger;
+          if(!greenChars.includes(copyEnteredWord[index].toUpperCase())) {
+          greenChars.push(copyEnteredWord[index].toUpperCase());
+          document.getElementById(""+copyEnteredWord[index].toUpperCase()+"").className = "wordleKeyboardGreen";
+          }
          
         } else if (charCheck[index] == 2) { //Logic to ensure that in case of a letter being entered multiple times, total of green and yellow classifications don't exceed the total number of times the letter appears in the owrd of the day
          
@@ -142,6 +152,11 @@
           if (charCountEnteredWord <= charCountKeyWord) {
             document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
             document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+
+            if(!greenChars.includes(copyEnteredWord[index].toUpperCase())) {
+            yellowChars.push(copyEnteredWord[index].toUpperCase());
+            document.getElementById(""+copyEnteredWord[index].toUpperCase()+"").className = "wordleKeyboardYellow";
+            }
             continue;
           } else if (charCountEnteredWord > charCountKeyWord) {
             var enteredMatchIndexes = [];
@@ -162,14 +177,25 @@
             if((charGreenCounter+charYellowCounter)> charCountKeyWord) {
               document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
               document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+
+              if(!greenChars.includes(copyEnteredWord[index].toUpperCase()) && !yellowChars.includes(copyEnteredWord[index].toUpperCase())) {
+              document.getElementById(""+copyEnteredWord[index].toUpperCase()+"").className = "wordleKeyboardGrey";
+              }
             } else {
               document.getElementById("" + counter + "" + index + "").className = "wordleCharsYellow";
               document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+              if(!greenChars.includes(copyEnteredWord[index].toUpperCase())) {
+                yellowChars.push(copyEnteredWord[index].toUpperCase());
+                document.getElementById(""+copyEnteredWord[index].toUpperCase()+"").className = "wordleKeyboardYellow";
+                }
             }
           } else if (charCheck[index] == 0) {
           
           document.getElementById("" + counter + "" + index + "").className = "wordleCharsGrey";
           document.getElementById("" + counter + "" + index + "").setAttribute("disabled", "disabled");
+          if(!greenChars.includes(copyEnteredWord[index].toUpperCase()) && !yellowChars.includes(copyEnteredWord[index].toUpperCase())) {
+          document.getElementById(""+copyEnteredWord[index].toUpperCase()+"").className = "wordleKeyboardGrey";
+          }
         }        
 
 
@@ -229,7 +255,7 @@
 
  function setWord() {
       
-    var wordList = new Array("THINK", "STEAM", "ENTRY", "FOCUS", "BREAK", "YOUTH", "START", "PARTY", "IMAGE", "EMPTY", "WATCH", "HOUSE", "VISIT", "WOMAN", "LARGE", "MONTH", "BLAME", "PROUD", "STATE", "BRIEF", "DRINK", "LIMIT", "JOINT", "BLOCK", "CATCH", "SPACE", "CLEAR", "RANGE", "QUEEN", "WHICH", "BUYER", "MAGIC", "VIDEO", "GUESS", "HEAVY", "CLAIM", "STEEL", "RATIO", "RELAX", "PRICE", "NIGHT", "ANGRY", "WHOSE", "ALTER", "AWARE", "BREAD", "TITLE", "BRAVE", "GUIDE", "MAJOR", "COVER", "CHEST", "OWNER", "DIRTY", "CAUSE", "CARRY", "PLANT", "SCOPE", "HARSH", "RIGHT", "LEAVE", "UNCLE", "CRIME", "CRAZY", "INPUT", "ALLOW", "EXIST", "WRITE", "SERVE", "ORDER", "EARTH", "PLACE", "WORLD", "STAND", "TOUCH", "LEVEL", "FINAL", "BREAK", "SENSE", "SKILL", "FIRST", "TRACK", "EVENT", "SCALE", "BIRTH", "OCCUR", "OUTER", "RUGBY", "METAL", "DANCE", "SPEND", "BRING", "SMOKE", "STATE", "PRIZE", "PHASE", "EXTRA", "TOWER", "NURSE", "ERROR", "CHAIR", "SHOCK", "RIGHT", "DRINK", "FALSE", "IDEAL", "FIGHT", "BROWN", "CYCLE", "DOUBT", "PHONE", "FRANK", "ADOPT", "DRESS", "TREAT", "FRUIT", "TRUST", "EARLY", "MINOR", "WATCH", "TRUTH", "HAPPY", "PANEL", "PROVE", "FINAL", "PLACE", "SOUTH", "PRIME", "DREAM", "BLOOD", "TREND", "REPLY", "VALUE", "POINT", "ROMAN", "GIANT", "LAUGH", "THERE", "HOTEL", "NAKED", "VOICE", "PAPER", "SHIFT", "WHITE", "RAISE", "AWFUL", "MATCH", "SHARE", "IMPLY", "MARRY", "SOUND", "UNION", "ISSUE", "UNITY", "JUDGE", "OFFER", "GREEN", "SHEEP", "HEART", "FUNNY", "ENTER", "DRIVE", "STAFF", "COUNT", "POINT", "CLIMB", "CLOCK", "DRAFT", "NOISE", "CREAM", "OTHER", "SCENE", "INDEX", "FAULT", "MARCH", "MOTOR", "POWER", "SLEEP", "DANCE", "BEGIN", "DOUBT", "BASIC", "LEGAL", "STONE", "GREEN", "MOUTH", "MAJOR", "LEARN", "YOURS", "FRESH", "NOVEL", "CHIEF", "PLATE", "SPEED", "MATCH", "MORAL", "MUSIC", "FIELD", "PITCH", "FAINT", "GLASS", "QUIET", "ENEMY", "TRAIN", "TRIAL", "ROUTE", "BUILD", "ALONE", "BLACK", "TABLE", "CROSS", "GRASS", "NASTY", "SHALL", "LEVEL", "WASTE", "CLEAN", "BOARD", "COVER", "BRAIN", "PRIDE", "ISSUE", "BURST", "HORSE", "FIGHT", "ACUTE", "EQUAL", "AGENT", "GRANT", "ARISE", "STUFF", "FIFTH", "REFER", "ROUND", "SOLVE", "CLAIM", "APPLE", "OUGHT", "STAGE", "COURT", "AVOID", "FOCUS", "SHIFT", "SPEAK", "SHIRT", "WHERE", "SUGAR", "BEACH", "PRIOR", "STUDY", "ALIVE", "PROOF", "STICK", "LAYER", "FORCE", "INNER", "PLANE", "CROWD", "KNIFE", "LOCAL", "CHILD", "BASIS", "SHAPE", "LUNCH", "JUDGE", "LIMIT", "SHEET", "CLOSE", "COAST", "ARGUE", "BROAD", "FLOOR", "AGREE", "DAILY", "DRAMA", "CHAIN", "TEACH", "THANK", "SPITE", "TRADE", "SMILE", "WASTE", "VOICE", "GROSS", "PRESS", "STOCK", "WOULD", "START", "OTHER", "ORDER", "FRONT", "MONEY", "WORRY", "GRAND", "CIVIL", "SPORT", "TOUCH", "THING", "TRUST", "PILOT", "ROUGH", "BLIND", "SPLIT", "LIGHT", "TRAIN", "TOTAL", "FRONT", "PLAIN", "STYLE", "CROWN", "APPLY", "FORCE", "BROWN", "CLASS", "THROW", "QUICK", "HUMAN", "WHILE", "THEME", "TASTE", "GROUP", "REACH", "ADULT", "SHARE", "DEPTH", "LOOSE", "ABOVE", "DRIVE", "SIGHT", "FRAME", "CLOSE", "CROSS", "ADMIT", "STUDY", "CHIEF", "SHOOT", "ENJOY", "OFFER", "GREAT", "CHEAP", "FAITH", "LUCKY", "STORE", "PRESS", "AWARD", "MODEL", "ANGER", "SCORE", "LIGHT", "RIVER", "EXACT", "RADIO", "PIECE", "SQUAD", "CLEAN", "CAUSE", "WHOLE", "POUND", "CHECK", "SLEEP", "CLEAR", "PEACE", "NORTH", "WATER", "PHONE", "SOUND", "COACH");
+    var wordList = new Array("THINK", "ENTRY", "FOCUS", "BREAK", "YOUTH", "START", "PARTY", "IMAGE", "EMPTY", "WATCH", "HOUSE", "VISIT", "WOMAN", "LARGE", "MONTH", "BLAME", "PROUD", "STATE", "BRIEF", "DRINK", "LIMIT", "JOINT", "BLOCK", "CATCH", "SPACE", "CLEAR", "RANGE", "QUEEN", "WHICH", "BUYER", "MAGIC", "VIDEO", "GUESS", "HEAVY", "CLAIM", "STEEL", "RATIO", "RELAX", "PRICE", "NIGHT", "ANGRY", "WHOSE", "ALTER", "AWARE", "BREAD", "TITLE", "BRAVE", "GUIDE", "MAJOR", "COVER", "CHEST", "OWNER", "DIRTY", "CAUSE", "CARRY", "PLANT", "SCOPE", "HARSH", "RIGHT", "LEAVE", "UNCLE", "CRIME", "CRAZY", "INPUT", "ALLOW", "EXIST", "WRITE", "SERVE", "ORDER", "EARTH", "PLACE", "WORLD", "STAND", "TOUCH", "LEVEL", "FINAL", "BREAK", "SENSE", "SKILL", "FIRST", "TRACK", "EVENT", "SCALE", "BIRTH", "OCCUR", "OUTER", "RUGBY", "METAL", "DANCE", "SPEND", "BRING", "SMOKE", "STATE", "PRIZE", "PHASE", "EXTRA", "TOWER", "NURSE", "ERROR", "CHAIR", "SHOCK", "RIGHT", "DRINK", "FALSE", "IDEAL", "FIGHT", "BROWN", "CYCLE", "DOUBT", "PHONE", "FRANK", "ADOPT", "DRESS", "TREAT", "FRUIT", "TRUST", "EARLY", "MINOR", "WATCH", "TRUTH", "HAPPY", "PANEL", "PROVE", "FINAL", "PLACE", "SOUTH", "PRIME", "DREAM", "BLOOD", "TREND", "REPLY", "VALUE", "POINT", "ROMAN", "GIANT", "LAUGH", "THERE", "HOTEL", "NAKED", "VOICE", "PAPER", "SHIFT", "WHITE", "RAISE", "AWFUL", "MATCH", "SHARE", "IMPLY", "MARRY", "SOUND", "UNION", "ISSUE", "UNITY", "JUDGE", "OFFER", "GREEN", "SHEEP", "HEART", "FUNNY", "ENTER", "DRIVE", "STAFF", "COUNT", "POINT", "CLIMB", "CLOCK", "DRAFT", "NOISE", "CREAM", "OTHER", "SCENE", "INDEX", "FAULT", "MARCH", "MOTOR", "POWER", "SLEEP", "DANCE", "BEGIN", "DOUBT", "BASIC", "LEGAL", "STONE", "GREEN", "MOUTH", "MAJOR", "LEARN", "YOURS", "FRESH", "NOVEL", "CHIEF", "PLATE", "SPEED", "MATCH", "MORAL", "MUSIC", "FIELD", "PITCH", "FAINT", "GLASS", "QUIET", "ENEMY", "TRAIN", "TRIAL", "ROUTE", "BUILD", "ALONE", "BLACK", "TABLE", "CROSS", "GRASS", "NASTY", "SHALL", "LEVEL", "WASTE", "CLEAN", "BOARD", "COVER", "BRAIN", "PRIDE", "ISSUE", "BURST", "HORSE", "FIGHT", "ACUTE", "EQUAL", "AGENT", "GRANT", "ARISE", "STUFF", "FIFTH", "REFER", "ROUND", "SOLVE", "CLAIM", "APPLE", "OUGHT", "STAGE", "COURT", "AVOID", "FOCUS", "SHIFT", "SPEAK", "SHIRT", "WHERE", "SUGAR", "BEACH", "PRIOR", "STUDY", "ALIVE", "PROOF", "STICK", "LAYER", "FORCE", "INNER", "PLANE", "CROWD", "KNIFE", "LOCAL", "CHILD", "BASIS", "SHAPE", "LUNCH", "JUDGE", "LIMIT", "SHEET", "CLOSE", "COAST", "ARGUE", "BROAD", "FLOOR", "AGREE", "DAILY", "DRAMA", "CHAIN", "TEACH", "THANK", "SPITE", "TRADE", "SMILE", "WASTE", "VOICE", "GROSS", "PRESS", "STOCK", "WOULD", "START", "OTHER", "ORDER", "FRONT", "MONEY", "WORRY", "GRAND", "CIVIL", "SPORT", "TOUCH", "THING", "TRUST", "PILOT", "ROUGH", "BLIND", "SPLIT", "LIGHT", "TRAIN", "TOTAL", "FRONT", "PLAIN", "STYLE", "CROWN", "APPLY", "FORCE", "BROWN", "CLASS", "THROW", "QUICK", "HUMAN", "WHILE", "THEME", "TASTE", "GROUP", "REACH", "ADULT", "SHARE", "DEPTH", "LOOSE", "ABOVE", "DRIVE", "SIGHT", "FRAME", "CLOSE", "CROSS", "ADMIT", "STUDY", "CHIEF", "SHOOT", "ENJOY", "OFFER", "GREAT", "CHEAP", "FAITH", "LUCKY", "STORE", "PRESS", "AWARD", "MODEL", "ANGER", "SCORE", "LIGHT", "RIVER", "EXACT", "RADIO", "PIECE", "SQUAD", "CLEAN", "CAUSE", "WHOLE", "POUND", "CHECK", "SLEEP", "CLEAR", "PEACE", "NORTH", "WATER", "PHONE", "SOUND", "COACH");
     
     //var fileContents = readTextFile('https://drive.google.com/file/d/1-dVy7b0zlWTtsPiBSO9IW9lEEOZlCumv/view?usp=sharing');
     var now = new Date();

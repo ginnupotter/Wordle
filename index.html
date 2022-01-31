@@ -18,9 +18,12 @@
       $(".wordlechars").keyup(function(e) {
           if (e.which == 8 || e.which == 46) {
             $(this).prev('input').focus();
+            // $(this).val('');
         }
-        else {
-            $(this).next('input').focus();     
+        else if (e.which == 9){
+            
+        } else {
+          $(this).next('input').focus();     
         }
         });
 
@@ -50,11 +53,45 @@
     <input type="text" id="50" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="51" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="52" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="53" name="row5" maxlength="1" class="wordlechars"> <input type="text" id="54" name="row5" maxlength="1" class="wordlechars"> <br><br>
     </div>
     
+    <input type="button" id="A" class="nothing" value="A" onclick="onKeyboardClick()">
+    <input type="button" id="B" class="nothing" value="B" onclick="onKeyboardClick()">
+    <input type="button" id="C" class="nothing" value="C" onclick="onKeyboardClick()">
+    <input type="button" id="D" class="nothing" value="D" onclick="onKeyboardClick()">
+    <input type="button" id="E" class="nothing" value="E" onclick="onKeyboardClick()">
+    <input type="button" id="F" class="nothing" value="F" onclick="onKeyboardClick()">
+    <input type="button" id="G" class="nothing" value="G" onclick="onKeyboardClick()">
+    <input type="button" id="H" class="nothing" value="H" onclick="onKeyboardClick()">
+    <input type="button" id="I" class="nothing" value="I" onclick="onKeyboardClick()">
+    <input type="button" id="J" class="nothing" value="J" onclick="onKeyboardClick()">
+    <br><br>
+    <input type="button" id="K" class="nothing" value="K" onclick="onKeyboardClick()">
+    <input type="button" id="L" class="nothing" value="L" onclick="onKeyboardClick()">
+    <input type="button" id="M" class="nothing" value="M" onclick="onKeyboardClick()">
+    <input type="button" id="N" class="nothing" value="N" onclick="onKeyboardClick()">
+    <input type="button" id="O" class="nothing" value="O" onclick="onKeyboardClick()">
+    <input type="button" id="P" class="nothing" value="P" onclick="onKeyboardClick()">
+    <input type="button" id="Q" class="nothing" value="Q" onclick="onKeyboardClick()">
+    <input type="button" id="R" class="nothing" value="R" onclick="onKeyboardClick()">
+    <input type="button" id="S" class="nothing" value="S" onclick="onKeyboardClick()">
+    <input type="button" id="T" class="nothing" value="T" onclick="onKeyboardClick()">
+    <br><br>
+    <input type="button" id="U" class="nothing" value="U" onclick="onKeyboardClick()">
+    <input type="button" id="V" class="nothing" value="V" onclick="onKeyboardClick()">
+    <input type="button" id="W" class="nothing" value="W" onclick="onKeyboardClick()">
+    <input type="button" id="X" class="nothing" value="X" onclick="onKeyboardClick()">
+    <input type="button" id="Y" class="nothing" value="Y" onclick="onKeyboardClick()">
+    <input type="button" id="Z" class="nothing" value="Z" onclick="onKeyboardClick()">
+    <br>
+    <br>
+
+
+    
+
     <input type="button" id="buttonPress" value="Submit" style="height:50px; width:200px; font-size: 20px;"  onclick="onSubmit()">
     
 
     <div class="pop">
-      <label for="3" class="open"><b>How To Play</b></label>
+      <label for="3" class="open" id="howTo"><b>How To Play</b></label>
       <input type="checkbox" id="3" />
       <div class="modal">
         <div class="modal__inner">
@@ -70,7 +107,7 @@
       </div>
   </div>
 
-  <h4>This is a hobby project built on the lines of <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank" rel="noopener noreferrer">Original WORDLE</a> game</h4>
+  <h4 id="disclaimer">This is a hobby project built on the lines of <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank" rel="noopener noreferrer">Original WORDLE</a> game</h4>
   </div>
 
 </body>
