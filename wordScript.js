@@ -66,6 +66,8 @@
       document.getElementById("dateDiv").className = "linkVisible";
       document.getElementById("howTo").style.visibility = "hidden";
       document.getElementById("disclaimer").style.visibility = "hidden";
+      document.getElementById("keyboard").style.visibility = "hidden";
+      
       return;
     }
 
