@@ -67,6 +67,7 @@
       document.getElementById("howTo").style.visibility = "hidden";
       document.getElementById("disclaimer").style.visibility = "hidden";
       document.getElementById("keyboard").style.visibility = "hidden";
+      document.getElementById("heading").remove();
       
       return;
     }
