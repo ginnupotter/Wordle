@@ -102,9 +102,9 @@ margin-bottom: 4px;
   background-color: rgb(255, 246, 246);
   opacity: 1;
   font-weight: bold;
-  font-size: large;
+  font-size: medium;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   margin-right: 4px;
   -webkit-appearance: none !important;
   
@@ -116,8 +116,9 @@ margin-bottom: 4px;
   background-color: rgb(255, 246, 246);
   opacity: 1;
   font-weight: bold;
+  font-size: medium;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   margin-right: 4px;
   -webkit-appearance: none !important;
 }
@@ -130,8 +131,8 @@ margin-bottom: 4px;
   width: 30px;
   text-align: center;
   font-weight: bold;
-  font-size: large;
-  margin-bottom: 5px;
+  font-size: medium;
+  margin-bottom: 7px;
   margin-right: 5px;
   -webkit-appearance: none !important;
 }
@@ -144,8 +145,8 @@ margin-bottom: 4px;
   width: 30px;
   text-align: center;
   font-weight: bold;
-  font-size: large;
-  margin-bottom: 5px;
+  font-size: medium;
+  margin-bottom: 7px;
   margin-right: 5px;
   -webkit-appearance: none !important;
 }
@@ -157,9 +158,9 @@ margin-bottom: 4px;
   height: 40px;
   width: 30px;
   text-align: center;
-  font-size: large;
+  font-size: medium;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   margin-right: 5px;
   -webkit-appearance: none !important;
 }
