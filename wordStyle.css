@@ -66,74 +66,6 @@ font-weight: bold;
 margin-bottom: 4px;
 }
 
-.nothing{
-
-  height: 30px;
-  width: 30px;
-  border-color: rgb(245, 239, 239);
-  background-color: rgb(255, 246, 246);
-  opacity: 1;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 5px;
-  margin-right: 4px;
-  -webkit-appearance: none !important;
-  
-}
-
-.specialKeys {
-  height: 30px;
-  border-color: rgb(245, 239, 239);
-  background-color: rgb(255, 246, 246);
-  opacity: 1;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 5px;
-  margin-right: 4px;
-  -webkit-appearance: none !important;
-}
-
-.wordleKeyboardGreen {
-  background-color: rgb(65, 179, 20);
-  color: rgb(4, 5, 5);
-  border-color: rgb(245, 239, 239);
-  height: 30px;
-  width: 30px;
-  border: none;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  -webkit-appearance: none !important;
-}
-
-.wordleKeyboardYellow {
-  background-color: rgb(240, 237, 61);
-  color: rgb(4, 5, 5);
-  border-color: rgb(245, 239, 239);
-  height: 30px;
-  width: 30px;
-  border: none;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  -webkit-appearance: none !important;
-}
-.wordleKeyboardGrey {
-  background-color: rgb(156, 160, 160);
-  color: rgb(4, 5, 5);
-  border-color: rgb(245, 239, 239);
-  font-weight: bold;
-  height: 30px;
-  width: 30px;
-  border: none;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  -webkit-appearance: none !important;
-}
 
 .wordleCharsYellow {
 background-color: rgb(240, 237, 61);
@@ -159,6 +91,76 @@ border-radius: 5px;
 text-align: center;
 font-weight: bold;
 margin-bottom: 4px;
+}
+
+
+.nothing{
+
+  height: 40px;
+  width: 30px;
+  border-color: rgb(245, 239, 239);
+  background-color: rgb(255, 246, 246);
+  opacity: 1;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-right: 4px;
+  -webkit-appearance: none !important;
+  
+}
+
+.specialKeys {
+  height: 40px;
+  border-color: rgb(245, 239, 239);
+  background-color: rgb(255, 246, 246);
+  opacity: 1;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-right: 4px;
+  -webkit-appearance: none !important;
+}
+
+.wordleKeyboardGreen {
+  background-color: rgb(65, 179, 20);
+  color: rgb(4, 5, 5);
+  border-color: rgb(245, 239, 239);
+  height: 40px;
+  width: 30px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  -webkit-appearance: none !important;
+}
+
+.wordleKeyboardYellow {
+  background-color: rgb(240, 237, 61);
+  color: rgb(4, 5, 5);
+  border-color: rgb(245, 239, 239);
+  height: 40px;
+  width: 30px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  -webkit-appearance: none !important;
+}
+.wordleKeyboardGrey {
+  background-color: rgb(156, 160, 160);
+  color: rgb(4, 5, 5);
+  border-color: rgb(245, 239, 239);
+  font-weight: bold;
+  height: 40px;
+  width: 30px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  -webkit-appearance: none !important;
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
