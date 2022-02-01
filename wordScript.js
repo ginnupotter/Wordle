@@ -234,6 +234,7 @@
 
       if (matchCounter == enteredWord.length) {
         showMessage(dispMsgComplete);
+        document.getElementById("keyboard").style.visibility = "hidden";
         document.getElementById("keyboard").remove();
         document.getElementById("buttonPress").value = "Clear Grid to Share";
         document.getElementById("buttonPress").style.visibility = "visible";
