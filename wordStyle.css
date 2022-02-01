@@ -42,8 +42,8 @@ body {
 .wordlechars {
 background-color: rgb(255, 255, 255);
 color: rgb(5, 4, 4);
-width: 20pt;
-height: 20pt;
+width: 24pt;
+height: 24pt;
 font-size:20px;
 text-transform: uppercase;
 text-align: center;
@@ -55,8 +55,8 @@ border-color: rgb(212, 209, 209);
 .wordleCharsGreen {
 background-color: rgb(65, 179, 20);
 color: rgb(4, 5, 5);
-width: 20pt;
-height: 20pt;
+width: 24pt;
+height: 24pt;
 font-size:20px;
 text-transform: uppercase;
 border-radius: 5px;
@@ -66,55 +66,59 @@ margin-bottom: 4px;
 }
 
 .nothing{
-  border-radius: 1px;
+
   height: 30px;
-  border: none;
+  border-color: rgb(245, 239, 239);
   background-color: rgb(255, 246, 246);
   opacity: 1;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
   
 }
 
 .wordleKeyboardGreen {
   background-color: rgb(65, 179, 20);
   color: rgb(4, 5, 5);
-  border-radius: 1px;
+
   height: 30px;
   border: none;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .wordleKeyboardYellow {
   background-color: rgb(240, 237, 61);
   color: rgb(4, 5, 5);
-  border-radius: 1px;
+ 
   height: 30px;
   border: none;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 .wordleKeyboardGrey {
   background-color: rgb(156, 160, 160);
   color: rgb(4, 5, 5);
-  border-radius: 1px;
+
   font-weight: bold;
   height: 30px;
   border: none;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .wordleCharsYellow {
 background-color: rgb(240, 237, 61);
 color: rgb(4, 5, 5);
-width: 20pt;
-height: 20pt;
+width: 24pt;
+height: 24pt;
 font-size:20px;
 text-transform: uppercase;
 border-radius: 5px;
@@ -126,8 +130,8 @@ margin-bottom: 4px;
 .wordleCharsGrey {
 background-color: rgb(156, 160, 160);
 color: rgb(4, 5, 5);
-width: 20pt;
-height: 20pt;
+width: 24pt;
+height: 24pt;
 font-size:20px;
 text-transform: uppercase;
 border-radius: 5px;
