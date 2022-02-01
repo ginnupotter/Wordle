@@ -77,6 +77,7 @@ margin-bottom: 4px;
   text-align: center;
   margin-bottom: 5px;
   margin-right: 4px;
+  -webkit-appearance: none !important;
   
 }
 
@@ -89,6 +90,7 @@ margin-bottom: 4px;
   text-align: center;
   margin-bottom: 5px;
   margin-right: 4px;
+  -webkit-appearance: none !important;
 }
 
 .wordleKeyboardGreen {
@@ -102,6 +104,7 @@ margin-bottom: 4px;
   font-weight: bold;
   margin-bottom: 5px;
   margin-right: 5px;
+  -webkit-appearance: none !important;
 }
 
 .wordleKeyboardYellow {
@@ -115,6 +118,7 @@ margin-bottom: 4px;
   font-weight: bold;
   margin-bottom: 5px;
   margin-right: 5px;
+  -webkit-appearance: none !important;
 }
 .wordleKeyboardGrey {
   background-color: rgb(156, 160, 160);
@@ -128,6 +132,7 @@ margin-bottom: 4px;
   font-weight: bold;
   margin-bottom: 5px;
   margin-right: 5px;
+  -webkit-appearance: none !important;
 }
 
 .wordleCharsYellow {
