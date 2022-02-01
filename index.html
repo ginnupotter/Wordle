@@ -65,15 +65,15 @@
 
 <body class="bodycenter" onload="onPageload()">
 
-  <div id="dateDiv"  class="linkInvisible">
-    <script>
-    date = new Date().toLocaleDateString();
-    document.write(date);
-    </script>
-  </div>
-  
-  <div id="wordgrid" class="center" style="clear:both;  text-align:center; background-color: rgb(235, 246, 247); opacity: 1;">
+
+  <div id="wordgrid" class="center fullheight" style="clear:both;  text-align:center; background-color: rgb(235, 246, 247); opacity: 1;">
     <h2 id="heading" class="center" style="text-align: center; font-size: 35px; text-underline-position: below;"><u>WORDLE</u></h2>
+    <div id="dateDiv"  class="linkInvisible">
+      <script>
+      date = new Date().toLocaleDateString();
+      document.write(date);
+      </script>
+    </div>
     <div class="wordleGrid" id="wordleGrid">
     <input type="text" id="00" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="01" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="02" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="03" name="row0" maxlength="1" class="wordlechars"> <input type="text" id="04" name="row0" maxlength="1" class="wordlechars"> <br>
     <input type="text" id="10" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="11" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="12" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="13" name="row1" maxlength="1" class="wordlechars"> <input type="text" id="14" name="row1" maxlength="1" class="wordlechars"> <br>
@@ -118,6 +118,7 @@
     <input type="button" id="back" class="specialKeys" value="DELETE" onclick="onKeyboardClick(this.id)">
     <br>
   </div>
+  <input type="button" id="buttonPress" value="Submit" style="height:40px; width:200px; font-size: 20px; visibility: hidden;"  onclick="onSubmit()">
   <div class="pop">
     <label for="3" class="open" id="howTo"><b>&#63;</b></label>
     <input type="checkbox" id="3" />
@@ -134,7 +135,8 @@
           <label class="btn-close" for="3">X</label>
       </div>
     </div>
-</div><input type="button" id="buttonPress" value="Submit" style="height:40px; width:200px; font-size: 20px; visibility: hidden;"  onclick="onSubmit()">
+    
+</div>
 
   </div>
 

@@ -25,6 +25,11 @@ body {
   
 }
 
+.fullheight {
+  height: 100%;
+  width: 100%;
+}
+
 .center {
   margin: 0 auto;
   padding: 10px;
