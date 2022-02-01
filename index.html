@@ -43,8 +43,7 @@
           return;
         }
       }  
-    } else {
-
+    } else if ((e.which >=65 && e.which <=90) || (e.which >=97 && e.which <=122)){
       for (let index = 0 ; index < enteredWord.length; index++) {
         if(enteredWord[index].value.length == 0 ) {
           enteredWord[index].value = keyValue;
@@ -53,6 +52,10 @@
           continue;
         }
       }
+  } else if (e.which ==13) {
+    onSubmit();
+  } else {
+    return false;
   }
 
   });
