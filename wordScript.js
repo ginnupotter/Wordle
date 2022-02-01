@@ -22,13 +22,13 @@
  function onPageload() {
      
     word = setWord();
-      var wordnum = 1;
-      for (let index = wordnum; index < 6; index++) {
+      //var wordnum = 1;
+      for (let index = 0; index < 6; index++) {
                 document.getElementsByName("row" + index).forEach(e => {
           e.disabled = true;
         });
       }
-      document.getElementById("00").focus();
+     // document.getElementById("00").focus();
     }
 
     function countString(str, letter) {
@@ -72,7 +72,31 @@
       return;
     }
 
+    function onKeyboardClick(keyId) {
+      let enteredWord = document.getElementsByName("row" + counter + "");
+      
+      if(keyId=="back") {
+        for (let index = enteredWord.length -1; index >= 0; index--) {
+          if(enteredWord[index].value.length == 0 ) {
+            continue;
+          } else {
+            enteredWord[index].value = "";
+            return;
+          }
+        }  
+      } else {
 
+        for (let index = 0 ; index < enteredWord.length; index++) {
+          if(enteredWord[index].value.length == 0 ) {
+            enteredWord[index].value = document.getElementById(keyId).value;
+            return;
+          } else {
+            continue;
+          }
+        }
+    }
+
+    }
 
     //Main logic function which does the matching against the word of the day.
     function onSubmit() {
@@ -207,6 +231,7 @@
 
       if (matchCounter == enteredWord.length) {
         showMessage(dispMsgComplete);
+        
         document.getElementById("buttonPress").value = "Clear Grid to Share";
         matched = 1;
       debugger;
@@ -219,16 +244,16 @@
               
       
       
-      document.getElementsByName("row" + counter).forEach(e => {
+/*       document.getElementsByName("row" + counter).forEach(e => {
         e.disabled = true;
-      });
+      }); */
       
       counter++;
       
-      document.getElementsByName("row" + counter).forEach(e => {
+/*       document.getElementsByName("row" + counter).forEach(e => {
         e.disabled = false;
       });
-      document.getElementById(counter+"0").focus(); // Bring focus to next row first box
+      document.getElementById(counter+"0").focus(); */ // Bring focus to next row first box
     }
 
 
