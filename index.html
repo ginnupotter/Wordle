@@ -14,7 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
   <script>
-      $(document).ready(function(){
+/*       $(document).ready(function(){
       $(".wordlechars").keyup(function(e) {
           if (e.which == 8 || e.which == 46) {
             $(this).prev('input').focus();
@@ -27,7 +27,35 @@
         }
         });
 
-      });
+      }); */
+
+
+    $(document).on("keyup", function (e) {
+    debugger;
+    let enteredWord = document.getElementsByName("row" + counter + "");
+    var keyValue = String.fromCharCode(e.which).toUpperCase();
+    if(e.which == 8) {
+      for (let index = enteredWord.length -1; index >= 0; index--) {
+        if(enteredWord[index].value.length == 0 ) {
+          continue;
+        } else {
+          enteredWord[index].value = "";
+          return;
+        }
+      }  
+    } else {
+
+      for (let index = 0 ; index < enteredWord.length; index++) {
+        if(enteredWord[index].value.length == 0 ) {
+          enteredWord[index].value = keyValue;
+          return;
+        } else {
+          continue;
+        }
+      }
+  }
+
+  });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 </head>

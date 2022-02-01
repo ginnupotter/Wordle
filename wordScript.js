@@ -17,6 +17,9 @@
      var greenChars = [];
      var yellowChars = [];
 
+
+
+
  
  /*Function to disable all but first row and bring focus to first character on page load*/
  function onPageload() {
