@@ -28,7 +28,7 @@
           e.disabled = true;
         });
       }
-     // document.getElementById("00").focus();
+     document.getElementById("00").focus();
     }
 
     function countString(str, letter) {
@@ -231,10 +231,9 @@
 
       if (matchCounter == enteredWord.length) {
         showMessage(dispMsgComplete);
-        
         document.getElementById("buttonPress").value = "Clear Grid to Share";
+        document.getElementById("buttonPress").style.visibility = "visible";
         matched = 1;
-      debugger;
         return;
       } else if (counter == enteredWord.length && matchCounter < enteredWord.length) {
         
